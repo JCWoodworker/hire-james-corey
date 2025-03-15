@@ -1,4 +1,4 @@
-import { Box } from "@mui/material"
+import { Box, Link } from "@mui/material"
 import "./App.css"
 import { LinkedIn, GitHub } from "@mui/icons-material"
 
@@ -17,12 +17,12 @@ function App() {
 					gap: 2,
 				}}
 			>
-				<a href="https://www.linkedin.com/in/j-corey">
+				<Link href="https://www.linkedin.com/in/j-corey" target="_blank">
 					<LinkedIn sx={{ fontSize: 40 }} />
-				</a>
-				<a href="https://github.com/jcwoodworker">
+				</Link>
+				<Link href="https://github.com/jcwoodworker" target="_blank">
 					<GitHub sx={{ fontSize: 40 }} />
-				</a>
+				</Link>
 			</Box>
 		</Box>
 	)

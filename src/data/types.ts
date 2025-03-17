@@ -9,3 +9,8 @@ export interface Project {
 export interface ProfilePoint {
 	text: string
 }
+
+export interface SocialLink {
+	icon: React.ReactElement
+	href: string
+}

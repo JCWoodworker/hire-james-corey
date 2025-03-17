@@ -8,7 +8,7 @@ import {
 	Link,
 } from "@mui/material"
 import { GitHub } from "@mui/icons-material"
-import { Project } from "../../data/index"
+import { Project } from "../../data/types"
 
 const ProjectCard = ({ project }: { project: Project }) => {
 	return (

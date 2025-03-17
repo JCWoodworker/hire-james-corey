@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material"
-import { projects } from "../../data/index"
+import { projects } from "../../data/project-data"
 import ProjectCard from "./ProjectCard"
 
 const ProjectGridLayout = () => {

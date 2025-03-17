@@ -12,7 +12,9 @@ export const projects: Project[] = [
 			"TypeScript",
 			"React",
 			"Material-UI",
-      "Netlify"
+			"CSS",
+			"Vite",
+			"Netlify",
 		],
 	},
   {
@@ -31,6 +33,21 @@ export const projects: Project[] = [
 			"TypeORM",
 			"Jest",
       "Heroku"
+		],
+	},
+	{
+		title: "React Portfolio",
+		description: "You're looking at it!",
+		image: "https://web-dev-business-client-sites.s3.us-east-2.amazonaws.com/my-portfolio/PortfolioScreenshot.jpg",
+		githubLink: "https://github.com/JCWoodworker/hirejamescorey",
+		websiteLink: "www.hirejamescorey.com",
+		technologies: [
+			"React",
+			"TypeScript",
+			"Material-UI",
+			"CSS",
+			"Vite",
+			"Netlify",
 		],
 	},
 ]

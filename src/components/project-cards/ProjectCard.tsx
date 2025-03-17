@@ -14,7 +14,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
 	return (
 		<Card
 			sx={{
-				margin: "1rem auto",
 				padding: 1,
 				textAlign: "center",
 				display: "flex",

@@ -7,6 +7,7 @@ export const projects: Project[] = [
 		image:
 			"https://web-dev-business-client-sites.s3.us-east-2.amazonaws.com/my-portfolio/OBL-Foolproof.png",
 		githubLink: "https://github.com/JCWoodworker/OnlyBizLinks",
+		websiteLink: "https://onlybizlinks.com",
 		technologies: [
 			"TypeScript",
 			"React",
@@ -20,6 +21,7 @@ export const projects: Project[] = [
 		image:
 			"https://web-dev-business-client-sites.s3.us-east-2.amazonaws.com/my-portfolio/NestJSScreenshot.png",
 		githubLink: "https://github.com/JCWoodworker/NestJS_Mega_Backend",
+		websiteLink: "",
 		technologies: [
 			"TypeScript",
 			"NestJS",

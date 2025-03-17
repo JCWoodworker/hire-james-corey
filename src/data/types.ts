@@ -3,6 +3,7 @@ export interface Project {
 	description: string
 	image: string
 	githubLink: string
+	websiteLink: string
 	technologies: string[]
 }
 

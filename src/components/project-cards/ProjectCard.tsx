@@ -7,7 +7,7 @@ import {
 	Chip,
 	Link,
 } from "@mui/material"
-import { GitHub } from "@mui/icons-material"
+import { GitHub, Web } from "@mui/icons-material"
 import { Project } from "../../data/types"
 
 const ProjectCard = ({ project }: { project: Project }) => {
@@ -21,7 +21,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 				flexDirection: { xs: "column", sm: "row" },
 				justifyContent: "center",
 				alignItems: "center",
-				height: { xs: "auto", sm: "200px" },
+				height: { xs: "auto", sm: "250px" },
 				backgroundColor: "rgba(255, 255, 255, 0.05)",
 				backdropFilter: "blur(10px)",
 				transition: "transform 0.2s, box-shadow 0.2s",
@@ -86,10 +86,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
 					direction="row"
 					spacing={1}
 					flexWrap="wrap"
-					justifyContent="center"
-					alignItems="center"
+					justifyContent="flex-start"
+					alignItems="flex-start"
 					gap={1}
-					sx={{ mb: 1 }}
+					sx={{ mb: 2 }}
 				>
 					{project.technologies.map((tech, i) => (
 						<Chip
@@ -112,6 +112,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
 					href={project.githubLink}
 					target="_blank"
 					sx={{
+						marginLeft: "10px",
+						marginBottom: "5px",
 						display: "flex",
 						alignItems: "center",
 						gap: 1,
@@ -124,6 +126,24 @@ const ProjectCard = ({ project }: { project: Project }) => {
 					}}
 				>
 					<GitHub /> View on GitHub
+				</Link>
+				<Link
+					href={project.websiteLink}
+					target="_blank"
+					sx={{
+						marginLeft: "10px",
+						display: "flex",
+						alignItems: "center",
+						gap: 1,
+						mt: "auto",
+						color: "primary.light",
+						textDecoration: "none",
+						"&:hover": {
+							color: "primary.main",
+						},
+					}}
+				>
+					<Web /> View Live Site
 				</Link>
 			</CardContent>
 		</Card>

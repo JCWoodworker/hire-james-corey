@@ -2,7 +2,7 @@ import "./App.css"
 import { Box } from "@mui/material"
 import { profilePoints } from "./data/profile-point-data"
 import ProfilePointWrapper from "./components/typography/ProfilePointWrapper"
-import ProjectLayout from "./components/project-grid/ProjectLayout"
+import ProjectLayout from "./components/project-cards/ProjectCardLayout"
 import PageTitleAndDescription from "./components/typography/PageTitleAndDescription"
 import SocialLinkContainer from "./components/typography/social-links/SocialLinkContainer"
 function App() {

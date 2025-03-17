@@ -24,8 +24,8 @@ export const projects: Project[] = [
 	{
 		title: "Evergreen Construction, RI",
 		description: "A website for a construction company in Rhode Island",
-		image: `${awsS3Prefix}EvergreenConstructionRI.png`,
-		githubLink: `${githubPrefix}EvergreenConstructionRI`,
+		image: `${awsS3Prefix}EvergreenConstructionRIScreenshot.png`,
+		githubLink: `${githubPrefix}evergreen-construction`,
 		websiteLink: "https://evergreenconstructionri.com",
 		technologies: [
 			"TypeScript",

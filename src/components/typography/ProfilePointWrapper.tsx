@@ -1,6 +1,12 @@
-import { Typography } from "@mui/material"
+import { Divider, Typography } from "@mui/material"
 
-const ProfilePointWrapper = ({ profilePointText }: { profilePointText: string }) => {
+const ProfilePointWrapper = ({
+	profilePointText,
+	isLast = false,
+}: {
+	profilePointText: string
+	isLast?: boolean
+}) => {
 	return (
 		<Typography
 			variant="body1"
@@ -17,6 +23,9 @@ const ProfilePointWrapper = ({ profilePointText }: { profilePointText: string })
 			}}
 		>
 			{profilePointText}
+			{!isLast && (
+				<Divider sx={{ my: 2, borderColor: "rgba(255, 255, 255, 0.1)" }} />
+			)}
 		</Typography>
 	)
 }

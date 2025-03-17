@@ -1,5 +1,5 @@
 import { Box } from "@mui/material"
-import { socialLinks } from "../../../data/social-link-data"
+import { socialLinks } from "../../data/social-link-data"
 import SocialLinkIcon from "./SocialLinkIcon"
 
 const SocialLinkContainer = () => {

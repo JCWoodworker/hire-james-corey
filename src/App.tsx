@@ -4,11 +4,13 @@ import { profilePoints } from "./data/profile-point-data"
 import ProfilePointWrapper from "./components/typography/ProfilePointWrapper"
 import ProjectLayout from "./components/project-cards/ProjectCardLayout"
 import PageTitleAndDescription from "./components/typography/PageTitleAndDescription"
-import SocialLinkContainer from "./components/typography/social-links/SocialLinkContainer"
+import SocialLinkContainer from "./components/social-links/SocialLinkContainer"
+import HeadshotImage from "./components/HeadshotImage"
 function App() {
 	return (
 		<Box sx={{ maxWidth: 1200, margin: "0 auto", padding: 3 }}>
 			<PageTitleAndDescription />
+			<HeadshotImage />
 			<SocialLinkContainer />
 
 			<Box
@@ -38,6 +40,7 @@ function App() {
 						<ProfilePointWrapper
 							key={index + point.text}
 							profilePointText={point.text}
+							isLast={index === profilePoints.length - 1}
 						/>
 					))}
 				</Box>

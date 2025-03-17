@@ -1,12 +1,16 @@
 import { Project } from "./types"
 
+const awsS3Prefix = "https://web-dev-business-client-sites.s3.us-east-2.amazonaws.com/my-portfolio/"
+const githubPrefix = "https://github.com/JCWoodworker/"
+
 export const projects: Project[] = [
 	{
 		title: "OnlyBizLinks",
-		description: "A Business Link Directory with React front-end and NestJS back-end",
+		description:
+			"A Business Link Directory with React front-end and NestJS back-end",
 		image:
-			"https://web-dev-business-client-sites.s3.us-east-2.amazonaws.com/my-portfolio/OBL-Foolproof.png",
-		githubLink: "https://github.com/JCWoodworker/OnlyBizLinks",
+			`${awsS3Prefix}OBL-Foolproof.png`,
+		githubLink: `${githubPrefix}OnlyBizLinks`,
 		websiteLink: "https://onlybizlinks.com",
 		technologies: [
 			"TypeScript",
@@ -17,12 +21,61 @@ export const projects: Project[] = [
 			"Netlify",
 		],
 	},
-  {
+	{
+		title: "Evergreen Construction, RI",
+		description: "A website for a construction company in Rhode Island",
+		image: `${awsS3Prefix}EvergreenConstructionRI.png`,
+		githubLink: `${githubPrefix}EvergreenConstructionRI`,
+		websiteLink: "https://evergreenconstructionri.com",
+		technologies: [
+			"TypeScript",
+			"React",
+			"Material-UI",
+			"CSS",
+			"Vite",
+			"Netlify",
+		],
+	},
+	{
+		title: "Cutting Board Corner",
+		description:
+			"A website for customers who purchased my custom cutting boards.  Accessed via embedded NFC chips.",
+		image: `${awsS3Prefix}CuttingBoardCornerScreenshot.png`,
+		githubLink: `${githubPrefix}CuttingBoardCorner`,
+		websiteLink: "https://cuttingboardcorner.com",
+		technologies: [
+			"TypeScript",
+			"React",
+			"Material-UI",
+			"CSS",
+			"Google Authentication",
+			"Light/Dark Mode",
+			"Vite",
+			"Netlify",
+		],
+	},
+	{
+		title: "React Portfolio",
+		description: "You're looking at it!",
+		image:
+			`${awsS3Prefix}PortfolioScreenshot.jpg`,
+		githubLink: `${githubPrefix}hirejamescorey`,
+		websiteLink: "www.hirejamescorey.com",
+		technologies: [
+			"React",
+			"TypeScript",
+			"Material-UI",
+			"CSS",
+			"Vite",
+			"Netlify",
+		],
+	},
+	{
 		title: "NestJS Mega Backend",
 		description: "A NestJS back-end application with a PostgreSQL database",
 		image:
-			"https://web-dev-business-client-sites.s3.us-east-2.amazonaws.com/my-portfolio/NestJSScreenshot.png",
-		githubLink: "https://github.com/JCWoodworker/NestJS_Mega_Backend",
+			`${awsS3Prefix}NestJSScreenshot.png`,
+		githubLink: `${githubPrefix}NestJS_Mega_Backend`,
 		websiteLink: "",
 		technologies: [
 			"TypeScript",
@@ -32,22 +85,7 @@ export const projects: Project[] = [
 			"TDD",
 			"TypeORM",
 			"Jest",
-      "Heroku"
-		],
-	},
-	{
-		title: "React Portfolio",
-		description: "You're looking at it!",
-		image: "https://web-dev-business-client-sites.s3.us-east-2.amazonaws.com/my-portfolio/PortfolioScreenshot.jpg",
-		githubLink: "https://github.com/JCWoodworker/hirejamescorey",
-		websiteLink: "www.hirejamescorey.com",
-		technologies: [
-			"React",
-			"TypeScript",
-			"Material-UI",
-			"CSS",
-			"Vite",
-			"Netlify",
+			"Heroku",
 		],
 	},
 ]

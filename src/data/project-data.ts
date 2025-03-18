@@ -23,8 +23,8 @@ export const projects: Project[] = [
 	},
 	{
 		title: "Evergreen Construction, RI",
-		description: "A website for a construction company in Rhode Island",
-		image: `${awsS3Prefix}EvergreenConstructionRIScreenshot.png`,
+		description: "A basic website for a local construction company in Rhode Island",
+		image: `${awsS3Prefix}EvergreenConstructionLogo.png`,
 		githubLink: `${githubPrefix}evergreen-construction`,
 		websiteLink: "https://evergreenconstructionri.com",
 		technologies: [
@@ -40,7 +40,7 @@ export const projects: Project[] = [
 		title: "Cutting Board Corner",
 		description:
 			"A website for customers who purchased my custom cutting boards.  Accessed via embedded NFC chips.",
-		image: `${awsS3Prefix}CuttingBoardCornerScreenshot.png`,
+		image: `${awsS3Prefix}CuttingBoardCornerLogoFull.png`,
 		githubLink: `${githubPrefix}CuttingBoardCorner`,
 		websiteLink: "https://cuttingboardcorner.com",
 		technologies: [
@@ -49,6 +49,7 @@ export const projects: Project[] = [
 			"Material-UI",
 			"CSS",
 			"Google Authentication",
+			"Authorization Roles",
 			"Light/Dark Mode",
 			"Vite",
 			"Netlify",

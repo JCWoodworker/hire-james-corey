@@ -1,5 +1,6 @@
 import { Link } from "@mui/material"
 import React from "react"
+import IconWrapper from "../IconWrapper"
 
 const SocialLinkIcon = ({
 	icon,
@@ -9,8 +10,16 @@ const SocialLinkIcon = ({
 	href: string
 }) => {
 	return (
-		<Link href={href} target="_blank" sx={{ "& svg": { fontSize: 30 } }}>
-			{icon}
+		<Link href={href} target="_blank">
+			<IconWrapper
+				styles={{
+					"& svg": { fontSize: 30 },
+					color: "white",
+					"&:hover": { color: "primary.main" },
+				}}
+			>
+				{icon}
+			</IconWrapper>
 		</Link>
 	)
 }

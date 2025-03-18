@@ -28,6 +28,8 @@ const ProfileContainer = ({ children }: { children: React.ReactNode }) => {
 				[theme.breakpoints.up("sm")]: {
 					padding: theme.spacing(4),
 				},
+				transition:
+					"width 0.3s, height 0.3s, padding 0.3s, background-color 0.3s, box-shadow 0.3s, border-radius 0.3s, backdrop-filter 0.3s",
 			})}
 			className="ProfilePointsContainer fadeIn"
 		>

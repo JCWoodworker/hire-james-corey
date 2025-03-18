@@ -19,11 +19,15 @@ const ProjectCard = ({ project }: { project: Project }) => {
 	const [imageLoaded, setImageLoaded] = useState(false)
 	const showCard = useTimeout(700)
 
-
 	return (
 		<>
 			{!showCard ? (
-				<Skeleton variant="rectangular" animation="wave" width="100%" height={275} />
+				<Skeleton
+					variant="rectangular"
+					animation="wave"
+					width="100%"
+					height={275}
+				/>
 			) : (
 				<Card
 					sx={{
@@ -36,7 +40,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
 						height: { xs: "auto", sm: "275px" },
 						backgroundColor: "rgba(255, 255, 255, 0.05)",
 						backdropFilter: "blur(10px)",
-						transition: "transform 0.2s, box-shadow 0.2s",
+						transition:
+							"transform 0.2s, box-shadow 0.2s, width 0.2s, height 0.2s",
 						"&:hover": {
 							transform: "translateY(-4px)",
 							boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
@@ -81,7 +86,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 								objectFit: "contain",
 								borderRadius: 1,
 								opacity: imageLoaded ? 1 : 0,
-								transition: "opacity 0.3s",
+								transition: "opacity 0.3s, width 0.2s, height 0.2s",
 							}}
 							image={project.image}
 							alt={project.title}

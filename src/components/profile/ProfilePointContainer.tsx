@@ -1,14 +1,14 @@
-import { Box, Skeleton } from "@mui/material"
+import { Box } from "@mui/material"
 import { useTimeout } from "../../hooks/useTimeout"
+import SkeletonWrapper from "../SkeletonWrapper"
 
 const ProfileContainer = ({ children }: { children: React.ReactNode }) => {
 	const showContainer = useTimeout(600)
 
 	if (!showContainer) {
 		return (
-			<Skeleton
-				variant="rectangular"
-				height={200}
+			<SkeletonWrapper
+				height="200px"
 				sx={{ maxWidth: "800px", margin: "0 auto" }}
 			/>
 		)

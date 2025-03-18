@@ -2,18 +2,18 @@ import { useState } from "react"
 import {
 	Card,
 	CardContent,
-	CardMedia,
 	Typography,
-	Stack,
-	Chip,
 	Link,
-	Skeleton,
 	Box,
+	Divider,
 } from "@mui/material"
 import { GitHub, Web } from "@mui/icons-material"
 import { Project } from "../../data/types"
 import { useTimeout } from "../../hooks/useTimeout"
 import IconWrapper from "../IconWrapper"
+import ProjectCardImage from "./ProjectCardImage"
+import SkeletonWrapper from "../SkeletonWrapper"
+import ProjectTechChips from "./ProjectTechChips"
 
 const ProjectCard = ({ project }: { project: Project }) => {
 	const [imageLoaded, setImageLoaded] = useState(false)
@@ -22,12 +22,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 	return (
 		<>
 			{!showCard ? (
-				<Skeleton
-					variant="rectangular"
-					animation="wave"
-					width="100%"
-					height={275}
-				/>
+				<SkeletonWrapper height="280px" />
 			) : (
 				<Card
 					sx={{
@@ -37,7 +32,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 						flexDirection: { xs: "column", sm: "row" },
 						justifyContent: "center",
 						alignItems: "center",
-						height: { xs: "auto", sm: "275px" },
+						height: { xs: "auto", sm: "280px" },
 						backgroundColor: "rgba(255, 255, 255, 0.05)",
 						backdropFilter: "blur(10px)",
 						transition:
@@ -54,44 +49,27 @@ const ProjectCard = ({ project }: { project: Project }) => {
 						sx={{
 							position: "relative",
 							width: { xs: "100%", md: "40%" },
-							height: { xs: "200px", md: "275px" },
-							minHeight: { md: "275px" },
+							height: { xs: "200px", md: "280px" },
+							minHeight: { md: "280px" },
 							flex: { sm: "0 0 40%" },
 						}}
 					>
 						{!imageLoaded && (
-							<Skeleton
-								variant="rectangular"
+							<SkeletonWrapper
 								sx={{
 									position: "absolute",
 									top: 0,
 									left: 0,
-									width: "100%",
-									height: "100%",
 									borderRadius: 1,
 									bgcolor: "rgba(255, 255, 255, 0.1)",
 								}}
 							/>
 						)}
-						<CardMedia
-							component="img"
-							loading="lazy"
-							decoding="async"
-							sx={{
-								position: "absolute",
-								top: 0,
-								left: 0,
-								width: "100%",
-								height: "100%",
-								objectFit: "contain",
-								borderRadius: 1,
-								opacity: imageLoaded ? 1 : 0,
-								transition: "opacity 0.3s, width 0.2s, height 0.2s",
-							}}
+						<ProjectCardImage
 							image={project.image}
-							alt={project.title}
-							onLoad={() => setImageLoaded(true)}
-							className="fadeIn"
+							title={project.title}
+							imageLoaded={imageLoaded}
+							setImageLoaded={setImageLoaded}
 						/>
 					</Box>
 					<CardContent
@@ -115,12 +93,19 @@ const ProjectCard = ({ project }: { project: Project }) => {
 							variant="h6"
 							gutterBottom
 							sx={{
-								color: "primary.light",
-								fontWeight: 500,
+								color: "White",
+								fontWeight: "bolder",
 							}}
 						>
 							{project.title}
 						</Typography>
+						<Divider
+							sx={{
+								mb: "0.25rem",
+								width: "100%",
+								borderColor: "rgba(255, 255, 255, 0.1)",
+							}}
+						/>
 						<Typography
 							variant="body2"
 							sx={{
@@ -134,32 +119,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 						>
 							{project.description}
 						</Typography>
-						<Stack
-							direction="row"
-							spacing={1}
-							flexWrap="wrap"
-							justifyContent="flex-start"
-							alignItems="flex-start"
-							gap={1}
-							sx={{ mb: 2 }}
-						>
-							{project.technologies.map((tech, i) => (
-								<Chip
-									key={i}
-									label={tech}
-									size="small"
-									sx={{
-										mb: 0.5,
-										backgroundColor: "rgba(255, 255, 255, 0.08)",
-										color: "primary.light",
-										borderRadius: "4px",
-										"&:hover": {
-											backgroundColor: "rgba(255, 255, 255, 0.12)",
-										},
-									}}
-								/>
-							))}
-						</Stack>
+						<ProjectTechChips technologies={project.technologies} />
 						<Link
 							href={project.githubLink}
 							target="_blank"

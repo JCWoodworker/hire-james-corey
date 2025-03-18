@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {
 	Card,
 	CardContent,
@@ -6,11 +7,14 @@ import {
 	Stack,
 	Chip,
 	Link,
+	Skeleton,
+	Box,
 } from "@mui/material"
 import { GitHub, Web } from "@mui/icons-material"
 import { Project } from "../../data/types"
 
 const ProjectCard = ({ project }: { project: Project }) => {
+	const [imageLoaded, setImageLoaded] = useState(false)
 	return (
 		<Card
 			sx={{
@@ -20,7 +24,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 				flexDirection: { xs: "column", sm: "row" },
 				justifyContent: "center",
 				alignItems: "center",
-				height: { xs: "auto", sm: "250px" },
+				height: { xs: "auto", sm: "275px" },
 				backgroundColor: "rgba(255, 255, 255, 0.05)",
 				backdropFilter: "blur(10px)",
 				transition: "transform 0.2s, box-shadow 0.2s",
@@ -31,17 +35,48 @@ const ProjectCard = ({ project }: { project: Project }) => {
 				border: "1px solid rgba(255, 255, 255, 0.1)",
 			}}
 		>
-			<CardMedia
-				component="img"
+			<Box
 				sx={{
+					position: "relative",
 					width: { xs: "100%", sm: "40%" },
-					height: { xs: "200px", sm: "auto" },
-					objectFit: "cover",
-					borderRadius: 1,
+					height: { xs: "200px", sm: "275px" },
+					minHeight: { sm: "275px" },
+					flex: { sm: "0 0 40%" },
 				}}
-				image={project.image}
-				alt={project.title}
-			/>
+			>
+				{!imageLoaded && (
+					<Skeleton
+						variant="rectangular"
+						sx={{
+							position: "absolute",
+							top: 0,
+							left: 0,
+							width: "100%",
+							height: "100%",
+							borderRadius: 1,
+							bgcolor: "rgba(255, 255, 255, 0.1)",
+						}}
+					/>
+				)}
+				<CardMedia
+					component="img"
+					loading="lazy"
+					sx={{
+						position: "absolute",
+						top: 0,
+						left: 0,
+						width: "100%",
+						height: "100%",
+						objectFit: "contain",
+						borderRadius: 1,
+						opacity: imageLoaded ? 1 : 0,
+						transition: "opacity 0.3s",
+					}}
+					image={project.image}
+					alt={project.title}
+					onLoad={() => setImageLoaded(true)}
+				/>
+			</Box>
 			<CardContent
 				sx={{
 					width: { xs: "100%", sm: "60%" },

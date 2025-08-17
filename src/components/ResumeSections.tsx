@@ -59,7 +59,10 @@ export function ExperienceSection() {
 										sx={{ mb: 1 }}
 									>
 										<Typography variant="h6">
-											{exp.role} · {exp.company}
+											{exp.role} ·{" "}
+											<span style={{ fontWeight: "bolder" }}>
+												{exp.company}
+											</span>
 										</Typography>
 										<Typography color="text.secondary">
 											{exp.startDate} — {exp.endDate}

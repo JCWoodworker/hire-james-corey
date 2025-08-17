@@ -31,7 +31,7 @@ export const resume: Resume = {
 		},
 		{
 			company: "Grubhub",
-			role: "Operations Engineer",
+			role: "Senior Operations Engineer",
 			location: "Boston, MA",
 			startDate: "2022-03",
 			endDate: "2024-04",

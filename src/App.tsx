@@ -13,12 +13,26 @@ import {
 	Link,
 } from "@mui/material"
 import { ArrowOutward } from "@mui/icons-material"
-import theme from "./theme/theme"
+import createAppTheme from "./theme/theme"
 import { projects } from "./data/project-data"
 import { profilePoints } from "./data/profile-point-data"
 import { socialLinks } from "./data/social-link-data"
+import ContactForm from "./components/ContactForm"
+import {
+	SkillsSection,
+	ExperienceSection,
+	EducationCertsSection,
+} from "./components/ResumeSections"
+import { useEffect, useMemo, useState } from "react"
+import type { PaletteMode } from "@mui/material"
 
-function Header() {
+function Header({
+	mode,
+	toggleMode,
+}: {
+	mode: PaletteMode
+	toggleMode: () => void
+}) {
 	return (
 		<Box component="header" sx={{ py: 6 }}>
 			<Container>
@@ -50,6 +64,9 @@ function Header() {
 								{s.icon}
 							</IconButton>
 						))}
+						<Button variant="outlined" onClick={toggleMode}>
+							{mode === "dark" ? "Light" : "Dark"} mode
+						</Button>
 					</Stack>
 				</Stack>
 			</Container>
@@ -194,24 +211,32 @@ function ContactSection() {
 				<Typography color="text.secondary" sx={{ mb: 3, maxWidth: 700 }}>
 					Interested in collaborating or hiring? Reach out—I'm quick to respond.
 				</Typography>
-				<Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-					<Button
-						component={Link}
-						href="https://www.linkedin.com/in/james-corey"
-						target="_blank"
-						rel="noreferrer noopener"
-					>
-						Message on LinkedIn
-					</Button>
-					<Button
-						component={Link}
-						href="https://github.com/jcwoodworker"
-						target="_blank"
-						rel="noreferrer noopener"
-						color="secondary"
-					>
-						View GitHub
-					</Button>
+				<Stack
+					direction={{ xs: "column", lg: "row" }}
+					spacing={4}
+					alignItems="flex-start"
+				>
+					<Box sx={{ flex: 1, width: "100%", maxWidth: 560 }}>
+						<ContactForm />
+					</Box>
+					<Stack direction="column" spacing={2}>
+						<Button
+							component={Link}
+							href="https://www.linkedin.com/in/james-corey"
+							target="_blank"
+							rel="noreferrer noopener"
+						>
+							Message on LinkedIn
+						</Button>
+						<Button
+							component={Link}
+							href="https://github.com/jcwoodworker"
+							target="_blank"
+							rel="noreferrer noopener"
+						>
+							View GitHub
+						</Button>
+					</Stack>
 				</Stack>
 			</Container>
 		</Box>
@@ -231,12 +256,24 @@ function Footer() {
 }
 
 function App() {
+	const [mode, setMode] = useState<PaletteMode>(
+		() => (localStorage.getItem("color-mode") as PaletteMode) || "dark"
+	)
+	const theme = useMemo(() => createAppTheme(mode), [mode])
+	useEffect(() => {
+		localStorage.setItem("color-mode", mode)
+	}, [mode])
+	const toggleMode = () => setMode((m) => (m === "dark" ? "light" : "dark"))
+
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
-			<Header />
+			<Header mode={mode} toggleMode={toggleMode} />
 			<Hero />
 			<ProfileHighlights />
+			<SkillsSection />
+			<ExperienceSection />
+			<EducationCertsSection />
 			<ProjectsSection />
 			<ContactSection />
 			<Footer />

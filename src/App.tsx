@@ -8,7 +8,6 @@ import {
 	Chip,
 	Card,
 	CardContent,
-	CardMedia,
 	IconButton,
 	Link,
 } from "@mui/material"
@@ -18,13 +17,10 @@ import { projects } from "./data/project-data"
 import { profilePoints } from "./data/profile-point-data"
 import { socialLinks } from "./data/social-link-data"
 import ContactForm from "./components/ContactForm"
-import {
-	SkillsSection,
-	ExperienceSection,
-	EducationCertsSection,
-} from "./components/ResumeSections"
+import { SkillsSection, ExperienceSection } from "./components/ResumeSections"
 import { useEffect, useMemo, useState } from "react"
 import type { PaletteMode } from "@mui/material"
+import MediaFrame from "./components/MediaFrame"
 
 function Header({
 	mode,
@@ -133,12 +129,7 @@ function ProjectsSection() {
 								flexDirection: "column",
 							}}
 						>
-							<CardMedia
-								component="img"
-								image={proj.image}
-								alt={proj.title}
-								sx={{ aspectRatio: "16 / 9", objectFit: "cover" }}
-							/>
+							<MediaFrame src={proj.image} alt={proj.title} fit="contain" />
 							<CardContent>
 								<Typography variant="h6" gutterBottom>
 									{proj.title}
@@ -273,7 +264,6 @@ function App() {
 			<ProfileHighlights />
 			<SkillsSection />
 			<ExperienceSection />
-			<EducationCertsSection />
 			<ProjectsSection />
 			<ContactSection />
 			<Footer />

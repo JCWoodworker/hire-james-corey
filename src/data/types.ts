@@ -46,4 +46,5 @@ export interface Resume {
 	education: Education[]
 	certifications: Certification[]
 	skills: string[]
+	achievements?: string[]
 }
